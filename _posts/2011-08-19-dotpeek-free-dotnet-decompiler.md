@@ -3,6 +3,7 @@ layout: post
 title: dotPeek–Free .Net decompiler
 categories: [.Net, Tools]
 tags: [C#, decompiler]
+date: 2011-08-19 22:23:00 +0200
 ---
 {% include JB/setup %}
 
