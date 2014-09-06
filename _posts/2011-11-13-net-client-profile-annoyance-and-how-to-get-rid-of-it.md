@@ -7,7 +7,7 @@ date: 2011-11-13 14:20:00 +0200
 ---
 {% include JB/setup %}
 
-In Visual Studio 2010 some project types(see link to msdn pages at the bottom of this post for full list) defaults to .Net Framework 4 Client Profile. In many cases that is a problem, actually in my line of work it is always a problem. The problem for me is that I reference libraries that target the full .Net framework, not the subset framework .Net client profile.
+In Visual Studio 2010 some project types([see link to MSDNfor full list](http://msdn.microsoft.com/en-us/library/cc656912.aspx)) defaults to .Net Framework 4 Client Profile. In many cases that is a problem, actually in my line of work it is always a problem. The problem for me is that I reference libraries that target the full .Net framework, not the subset framework .Net client profile.
 
 So when I add a reference to structuremap or any other library which targets the full .Net framework, everything looks good until the project is being build. Then I get an error: `The type or namespace name 'StructureMap' could not be found (are you missing a using directive or an assembly reference?)`.
 
@@ -31,5 +31,3 @@ Then I save the file and zip the files back to a zip file I call ConsoleApplicat
 
 Since Visual Studio cache the project templates, a new project of type console application would now still be using the .Net 4 Client Profile framework. So we will have to update the cached folder. The cached folder is located `\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\ProjectTemplatesCache\CSharp\Windows\1033` if you wondered.
 To update the cached folder I launch the Visual Studio Command Prompt and run the command `devenv /installvstemplates`. This command runs for some seconds. When it is finished without any errors you can launch Visual Studio and create a console application project. Now it uses the full .Net 4 Framework, not the .Net 4 Client Profile.
-
-http://msdn.microsoft.com/en-us/library/cc656912.aspx
