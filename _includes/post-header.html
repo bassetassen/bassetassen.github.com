@@ -1,0 +1,10 @@
+<div class="date">
+	<span>Posted: {{ include.param.date | date: "%A, %d %B %Y %R %Z" }}</span>
+	{% unless include.param.categories == empty %}
+		in
+		<ul class="categories">
+		{% assign categories_list = include.param.categories %}
+		{% include JB/categories_list %}
+		</ul>
+	{% endunless %}
+</div>

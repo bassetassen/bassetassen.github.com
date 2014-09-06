@@ -1,15 +1,6 @@
 <div class="page-header">
   <h1>{{ page.title }}</h1>
-  <div class="date">
-    <span>Posted: {{ page.date | date: "%A, %d %B %Y %R %Z" }}</span>
-    {% unless page.categories == empty %}
-    in
-    <ul class="categories">
-      {% assign categories_list = page.categories %}
-      {% include JB/categories_list %}
-    </ul>
-    {% endunless %}  
-  </div>
+  {% include post-header.html param=page %}
 </div>
 
 <div class="row post-full">
