@@ -7,12 +7,9 @@ date: 2011-11-13 14:20:00 +0200
 ---
 {% include JB/setup %}
 
-In Visual Studio 2010 some project types([see link to MSDNfor full list](http://msdn.microsoft.com/en-us/library/cc656912.aspx)) defaults to .Net Framework 4 Client Profile. In many cases that is a problem, actually in my line of work it is always a problem. The problem for me is that I reference libraries that target the full .Net framework, not the subset framework .Net client profile.
+In Visual Studio 2010 some project types([MSDN for full list](http://msdn.microsoft.com/en-us/library/cc656912.aspx)) defaults to .Net Framework 4 Client Profile. In many cases that is a problem, actually in my line of work it is always a problem. The problem for me is that I reference libraries that target the full .Net framework, not the subset framework .Net client profile.
 
-So when I add a reference to structuremap or any other library which targets the full .Net framework, everything looks good until the project is being build. Then I get an error:
-```
-The type or namespace name 'StructureMap' could not be found (are you missing a using directive or an assembly reference?)
-```
+So when I add a reference to structuremap or any other library which targets the full .Net framework, everything looks good until the project is being build. Then I get an error: "The type or namespace name 'StructureMap' could not be found (are you missing a using directive or an assembly reference?)".
 
 The first few times I got this error message I wasted quite some time on troubleshooting. Now it is just annoying and I immediately change the target framework when I get this error message. You can change the target framework in the properties of your project. Just right-click project and choose properties.
 
