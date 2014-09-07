@@ -14,8 +14,16 @@ When you type in your credentials and server address you will get the error mess
 <img src="{{ site.url }}/assets/images/webresourceutility_crm365/error_logging_in.png" class="img-responsive" alt="Error message" title="Error message in webresource utility" />
 
 This is because the Web Resource Utility uses
-`https://dev.[address_typed_in]/XRMServices/2011/Discovery.svc` That is correct for CRM Online as the discovery service, but not when you have CRM from Office 365. Office 365 instances of CRM uses disco insted of dev in the URL. So a correct URL for a CRM Online from Office 365 is
-`https://disco.[address_typed_in]/XRMServices/2011/Discovery.svc`
+
+```
+https://dev.[address_typed_in]/XRMServices/2011/Discovery.svc
+```
+
+That is correct for CRM Online as the discovery service, but not when you have CRM from Office 365. Office 365 instances of CRM uses disco insted of dev in the URL. So a correct URL for a CRM Online from Office 365 is
+
+```
+https://disco.[address_typed_in]/XRMServices/2011/Discovery.svc
+```
 
 For more info on the differnet discovery services see [MSDN](http://msdn.microsoft.com/en-us/library/gg328127.aspx)
 
@@ -29,9 +37,9 @@ config.DiscoveryUri = new Uri(String.Format("https://dev.{0}/XRMServices/2011/Di
 
 to
 
-```csharp
+{% highlight csharp %}
 config.DiscoveryUri = new Uri(String.Format("https://{0}/XRMServices/2011/Discovery.svc", config.ServerAddress));
-```
+{% endhighlight %}
 
 After this change you will have to specify dev/disco part to use the tool, but it will work for both “regular” CRM Online and CRM Online from Office 365.
 
