@@ -11,6 +11,13 @@ body {
   background-color: #fff;
   padding: 1px 30px;
   margin-top: -20px;
+
+  -webkit-border-bottom-right-radius: 8px;
+  -webkit-border-bottom-left-radius: 8px;
+  -moz-border-radius-bottomright: 8px;
+  -moz-border-radius-bottomleft: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
 .date {
@@ -55,7 +62,11 @@ body {
 }
 
 #footer {
-  background-color: #fdcd60;
+  padding: 15px 0;
+}
+
+#footer p {
+  padding-left: 30px;
 }
 
 /* posts index */
