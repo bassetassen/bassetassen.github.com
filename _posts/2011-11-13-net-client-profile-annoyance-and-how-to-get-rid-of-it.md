@@ -11,9 +11,11 @@ In Visual Studio 2010 some project types([MSDN for full list](http://msdn.micros
 
 So when I add a reference to structuremap or any other library which targets the full .Net framework, everything looks good until the project is being build. Then I get an error: "The type or namespace name 'StructureMap' could not be found (are you missing a using directive or an assembly reference?)".
 
+<img src="{{ site.url }}/assets/images/client_profile/target_framework.png" class="img-responsive img-right" alt="Target framework" title="The target framework dropdown" />
 The first few times I got this error message I wasted quite some time on troubleshooting. Now it is just annoying and I immediately change the target framework when I get this error message. You can change the target framework in the properties of your project. Just right-click project and choose properties.
 
 On the new project screen in Visual Studio, there is a dropdown menu where it is possible to choose the target framework. But this list only show the full frameworks. Unfortunately there is no setting in Visual Studio to set projects to use the full framework either. But there is an solution, change the project template.
+<img src="{{ site.url }}/assets/images/client_profile/new_project.png" class="img-responsive img-right" alt="New project screen" title="New project screen" />
 
 The project templates for C# in an default installation can be found "\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\ProjectTemplates\CSharp". In this example I will change the Console application. So from the CSharp directory I browse my way to "Windows\1033\". Here are all the project templates that is available for windows applications in C#.
 

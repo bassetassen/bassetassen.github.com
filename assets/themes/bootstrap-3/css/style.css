@@ -43,6 +43,16 @@ body {
   display: none;
 }
 
+.img-left {
+  float: left;
+  padding: 5px 5px 5px 0;
+}
+
+.img-right {
+  float: right;
+  padding: 5px 0 5px 5px;
+}
+
 #footer {
   background-color: #fdcd60;
 }
