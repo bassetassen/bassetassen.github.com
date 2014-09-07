@@ -1,0 +1,12 @@
+---
+layout: post
+title: New blog
+categories: [Misc]
+tags: []
+date: 2014-09-07 23:01:00 +0200
+---
+{% include JB/setup %}
+
+I have planned for a long time now to change blog platform, this weekend I finally got around to it. My choice for blog platform is [Jekyll](http://jekyllrb.com/) and [Jekyll bootstrap](http://jekyllbootstrap.com/). The blog is now hosted on [GitHub pages](https://pages.github.com/). I have changed the default design form Jekyll bootstrap a bit, but it is still pretty plain and I guess that reflects my design skills :)
+
+Now I just have to start blogging on a more regular basis.
