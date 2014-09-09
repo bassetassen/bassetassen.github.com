@@ -5,7 +5,7 @@
 		<ul class="categories">
 			{% assign categories_list = include.param.categories %}
 			{% include JB/categories_list %}
-			<li><a href="{{ post.url }}/#disqus_thread"></a></li>
+			<li><a href="{{ include.param.url }}/#disqus_thread"></a></li>
 		</ul>
 	{% endunless %}
 </div>
