@@ -1,10 +1,11 @@
 <div class="date">
-	<span>Posted: {{ include.param.date | date: "%A, %d %B %Y %R %Z" }}</span>
+	Posted: {{ include.param.date | date: "%A, %d %B %Y %R %Z" }}
 	{% unless include.param.categories == empty %}
 		in
 		<ul class="categories">
-		{% assign categories_list = include.param.categories %}
-		{% include JB/categories_list %}
+			{% assign categories_list = include.param.categories %}
+			{% include JB/categories_list %}
+			<li><a href="{{ post.url }}/#disqus_thread"></a></li>
 		</ul>
 	{% endunless %}
 </div>
