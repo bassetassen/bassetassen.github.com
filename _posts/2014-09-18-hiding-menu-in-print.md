@@ -7,7 +7,7 @@ date: 2014-09-18 22:45:00 +0200
 ---
 {% include JB/setup %}
 
-Recently I had a client that needed to print CRM pages that contained some web resources. The standard print functionality in Dynamics CRM only supports printing static content, so some web resources used on the page being printed was omitted. The user wanted to use the browsers print capabilities and it all worked great, except that the Dynamics CRM header was included on the top.
+Recently I had a client requirement that involved printing of CRM pages that contained web resources. The standard print functionality in Dynamics CRM only supports printing static content, so some web resources used on the page being printed was omitted. The user wanted to use the browsers print capabilities and it all worked great, except that the Dynamics CRM header was included on the top.
 
 <img src="{{ site.url }}/assets/images/hiding_menu_in_print/print-heading.png" class="img-responsive" alt="Print preview showing CRM menu" title="CRM menu at the top of the page when printing in browser" />
 
