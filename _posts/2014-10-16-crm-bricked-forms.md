@@ -13,7 +13,9 @@ The other day I completely bricked a form in Dynamics CRM. The form would just h
 
 <img src="{{ site.url }}/assets/images/bricked_crm_forms/field_metadata.png" class="img-responsive img-right" alt="Field metadata" title="Description on field, do not put double curly brackets here" />
 
-I had chosen a template format like '{{contactname}}', and then I would replace this with the name of the contact when we were sending the SMS. The problem is that this is a pretty widely used format, and CRM uses JsRender, which uses this kind of format as well.
+{% raw %}
+I had chosen a template format like {{contactname}}, and then I would replace this with the name of the contact when we were sending the SMS. The problem is that this is a pretty widely used format, and CRM uses JsRender, which uses this kind of format as well.
+{% endraw %}
 
 It also took some time to figure out what was wrong, because only Internet Explorer showed something in the console. And IE, was sadly in this case, not the first browser I tried. But when I did try IE, it gave me the error message below, and I immediately understood what had gone wrong.
 
