@@ -19,7 +19,7 @@ We then installed the build tools for 2015 and restarted the server. Then the bu
 
 This was for an internal library that now was working again, but there still was a web project that had problems. This time the build was complaining about some missing dll's.
 
-{% highlight javascript %}
+{% highlight %}
    C:\...bla.csproj(1045, 3): error MSB4019: The imported project
    "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v14.0\WebApplications\Microsoft.WebApplication.targets"
    was not found. Confirm that the path in the <Import> declaration is correct, and that the file exists on disk.
