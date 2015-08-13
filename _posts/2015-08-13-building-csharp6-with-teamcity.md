@@ -20,9 +20,7 @@ We then installed the build tools for 2015 and restarted the server. Then the bu
 This was for an internal library that now was working again, but there still was a web project that had problems. This time the build was complaining about some missing dll's.
 
 ```text
-   C:\...bla.csproj(1045, 3): error MSB4019: The imported project
-   "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v14.0\WebApplications\Microsoft.WebApplication.targets"
-   was not found. Confirm that the path in the <Import> declaration is correct, and that the file exists on disk.
+ C:\TeamCity\BuildAgent\...\Web.csproj(1045, 3): error MSB4019: The imported project "C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v14.0\WebApplications\Microsoft.WebApplication.targets" was not found. Confirm that the path in the <Import> declaration is correct, and that the file exists on disk.
 ```
 
 Now we only copied over the files from a computer with Visual Studio 2015 installed and this build was working again. We actually copied over the whole v14.0 folder.
