@@ -16,13 +16,13 @@ sudo apt-get install pidgin pidgin-sipe
 ```
 
 Then I open Pidgin and add an account. On the basic tab I used these settings:
-* Protocol: Office Communicator
-* Username: My email
-* Password: My Password
+- Protocol: Office Communicator
+- Username: My email
+- Password: My Password
 
 On the advanced tab:
-* Connection type: Auto
-* Authentication scheme: TLS-DSK
+- Connection type: Auto
+- Authentication scheme: TLS-DSK
 
 When I'm connecting now, I get an error, saying unable to validate certificate. To fix this I go to this domain, download the certificate and put it in ~/.purple/certificates/x509/tls_peers/
 It seems like it is important to name the certificate file the same as the domain, so I name the certificate file webext01.phonectuc.net
