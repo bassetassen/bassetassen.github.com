@@ -7,7 +7,7 @@ date: 2017-10-19 14:30:00 +0200
 ---
 {% include JB/setup %}
 
-We have started using some new language features from C# 7 lately and then some builds on Team City started failing. Luckily I remembered my post from the time we started using C# 6 features. You can find that post here: {{ site.baseurl }}{% post_url 2015-08-13-building-csharp6-with-teamcity %}
+We have started using some new language features from C# 7 lately and then some builds on Team City started failing. Luckily I remembered my post from the time we started using C# 6 features. You can find that post here: [C#6 post]({{ site.baseurl }}{% link _post/2015-08-13-building-csharp6-with-teamcity.md %})
 
 ```
 error CS1003: Syntax error, ',' expected
