@@ -13,8 +13,8 @@ This example from the previous link creates an account and set the primary conta
 
 ```json
 {
-"name":"Sample Account",
-"primarycontactid@odata.bind":"/contacts(e13072b3-81ba-e711-8108-5065f38ba391)"
+    "name":"Sample Account",
+    "primarycontactid@odata.bind":"/contacts(e13072b3-81ba-e711-8108-5065f38ba391)"
 }
 ```
 
@@ -39,9 +39,10 @@ When querying with this prefer header we get to see the name of the associatedna
 When setting a lookup on a custom attribute the associatednavigationproperty is set to the same as the schemaname, this is confusing because this is not the case on the standard lookup attributes as we saw on the primarycontactid example above. Schemaname for primarycontactid is PrimaryContactId.
 
 Here is a example on a custom entity, notice the case-sensitivity. Here the associatednavigationproperty is equal to the schemaname of the attribute.
+
 ```json
 {
-	"new_Testentitet@odata.bind": "/new_testentitets(0FB7A14C-8DBA-E711-810A-5065F38BD3C1)"
+    "new_Testentitet@odata.bind": "/new_testentitets(0FB7A14C-8DBA-E711-810A-5065F38BD3C1)"
 }
 ```
 
@@ -76,7 +77,6 @@ This is the result when querying the newly created recored.
     "_crmntime_hourtypemain_value@Microsoft.Dynamics.CRM.lookuplogicalname": "crmntime_hourtype",
     "_crmntime_hourtypemain_value": "2b645ea3-7352-e711-80fa-5065f38ba391"
 }
-
 ```
 
 When looking at this result we can see that regardingobjectid_incident is not the associatednavigationproperty, but using regardingobjectid_incident_crmntime_timeentry@odata.bind also work.
