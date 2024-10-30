@@ -3,7 +3,7 @@ layout: post
 title: Using Managed Identity in Plugins
 categories: [CRM, Dynamics 365, Azure, Security]
 tags: [Dynamics 365, Security]
-date: 2024-10-28 23:10:00 +0200
+date: 2024-10-30 23:40:00 +0200
 ---
 {% include JB/setup %}
 
