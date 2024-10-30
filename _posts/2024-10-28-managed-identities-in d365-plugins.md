@@ -21,7 +21,7 @@ I started with creating a user-assigned managed identity (you can also use app r
 In the documentation it shows that the format for the Issuer URL is: `https://[environment ID prefix].[environment ID suffix].enviornment.api.powerplatform.com/sts`
 
 The way I found the environment id was going over to https://admin.powerplatform.microsoft.com/environments and clicking in to my environment, here you can see the ID:
-<img src="{{ site.url }}/assets/images/managed_identities_dataverse_plugins/admin_powerplatform_environment.png" class="img-responsive img-right" alt="Environment id in admin powerplatform" title="Environment id in admin powerplatform" />
+<img src="{{ site.url }}/assets/images/managed_identities_dataverse_plugins/admin_powerplatform_environment.png" class="img-responsive" alt="Environment id in admin powerplatform" title="Environment id in admin powerplatform" />
 
 The documentation says that the environment id should be split up in a prefix and a suffix where the suffix is the last two charathers and the prefix is everything except the last two. In the documentation you can see that the guid is stripped for dashes.
 
@@ -30,7 +30,9 @@ So for my environment with environment id 07d0e6ff-3293-eefd-9130-345f9adc035a, 
 For the Subject identifier the format is: `component:pluginassembly,thumbprint:<<Thumbprint>>,environment:<<EnvironmentId>>`. The thumbprint you get from the certificate you will sign the plugin assembly with.
 
 So with my setup this is the Issuer URL and Subject identifier.
-<img src="{{ site.url }}/assets/images/managed_identities_dataverse_plugins/fed_credential.png" class="img-responsive img-right" alt="Federated Credential" title="Federated Credential" />
+
+<img src="{{ site.url }}/assets/images/managed_identities_dataverse_plugins/fed_credential.png" class="img-responsive" alt="Federated Credential" title="Federated Credential" />
+
 
 Issuer URL: `https://07d0e6ff3293eefd9130345f9adc03.5a.environment.api.powerplatform.com/sts`
 
@@ -38,10 +40,12 @@ Subject identifier: `component:pluginassembly,thumbprint:4349791EF561BF999AD4360
 
 One thing I did wrong here when setting this up was not including the dashes in the environment id in Subject identifier and I then got an error in plugin traces when testing this out. The good thing was that the error captured in the trace wrote out the correct Subject identifier for the plugin.
 
+
 ### Azure Role Assignemnt
 In Azure Portal I have given my Managed Identity the Key Vault Secrets User role on my Key Vault.
 
-<img src="{{ site.url }}/assets/images/managed_identities_dataverse_plugins/identity_azure_role_assignment.png" class="img-responsive img-left" alt="Azure Role Assignment" title="Azure Role Assignment" />
+<img src="{{ site.url }}/assets/images/managed_identities_dataverse_plugins/identity_azure_role_assignment.png" class="img-responsive" alt="Azure Role Assignment" title="Azure Role Assignment" />
+
 
 ### Plugin
 For the plugin code it is worth looking at the IManagedIdentityService and the use of AcquireToken with the scope for Key Vault, here I get the token that I use to get the secret from Key Vault. Other then that I just write out the content of the response from Key Vault.
@@ -99,7 +103,7 @@ If you need to create a self-signed certificate look at the powershell command `
 
 When the plugin is compiled and signed you can register as you always do with pluginregistration tool.
 
-### Create records in Dataverse
+### Register managed identity in Dataverse
 Now you have to do a final step to register this in Dataverse and here is where it feels very preview. You have to do a POST request to the managedidentities endpoint in Dataverse API with the following body:
 ```json
  {
@@ -112,7 +116,7 @@ Now you have to do a final step to register this in Dataverse and here is where 
 ```
 Since the managedidentityid property takes any id I just re-used the application id, here is a picture of my request from Postman:
 
-<img src="{{ site.url }}/assets/images/managed_identities_dataverse_plugins/postman_post_managedidentity.png" class="img-responsive img-left" alt="Postman POST managed identity" title="Postman POST managed identity" />
+<img src="{{ site.url }}/assets/images/managed_identities_dataverse_plugins/postman_post_managedidentity.png" class="img-responsive" alt="Postman POST managed identity" title="Postman POST managed identity" />
 
 Then we have to do a PATCH request to relate the managed identity record we just created with the plugin assembly. The hardest part here was finding the correct id to the plugin assembly. I used this query in the API to find the ID:
 
@@ -126,9 +130,10 @@ With the following result:
 {"@odata.context":"https://org6b0754c2.crm19.dynamics.com/api/data/v9.0/$metadata#pluginassemblies(pluginassemblyid)","value":[{"@odata.etag":"W/\"3351749\"","pluginassemblyid":"229afa6b-6fbe-4252-9fff-cb5c2114bc14"}]}
 ```
 
-<img src="{{ site.url }}/assets/images/managed_identities_dataverse_plugins/postman_patch_plugin_assembly.png" class="img-responsive img-left" alt="Postman PATCH plugin assembly" title="Postman PATCH plugin assembly" />
+<img src="{{ site.url }}/assets/images/managed_identities_dataverse_plugins/postman_patch_plugin_assembly.png" class="img-responsive" alt="Postman PATCH plugin assembly" title="Postman PATCH plugin assembly" />
+
 
 ### Trying it out
 Now I am ready to test the plugin. I have created a secret in my Key Vault and I have turned on tracing in my environment. My plugin triggers on creation of account so I create a new one and save it and wait a few seconds for my trace log record to appear. And as you can see from the picture below we got the secret from our Key Vault :satisfied:
 
-<img src="{{ site.url }}/assets/images/managed_identities_dataverse_plugins/plugin_trace.png" class="img-responsive img-left" alt="Trace show secret retrieved from Key Vault" title="Trace show secret retrieved from Key Vault" />
+<img src="{{ site.url }}/assets/images/managed_identities_dataverse_plugins/plugin_trace.png" class="img-responsive" alt="Trace show secret retrieved from Key Vault" title="Trace show secret retrieved from Key Vault" />
